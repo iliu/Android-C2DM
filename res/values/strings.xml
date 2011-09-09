@@ -2,4 +2,11 @@
 <resources>
     <string name="hello">Hello World, HomeActivity!</string>
     <string name="app_name">C2dmSample</string>
+    <string name="buttonText">Click to register device for c2dm</string>
+    <string name="regIdTitle">Registration ID</string>
+    <string name="regIdSummary">Your device registration id from google</string>
+    <string name="sendPermissionLabel">Send Notification Perimssion</string>
+    <string name="receivePermissionLabel">Receive Notification Permission</string>
+    <string name="sendPermissionSummary">Permission to send intents to C2DMSample</string>
+    <string name="receivePermissionSummary">Permission to receive intents from C2DMSample</string>
 </resources>

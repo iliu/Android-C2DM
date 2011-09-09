@@ -55,9 +55,17 @@ public class C2DMReceiver extends BroadcastReceiver{
 			Toast.makeText(context, "Unregistered: " + unregistered, Toast.LENGTH_LONG).show();
 			// TODO: send POST to server to unregister device from C2DM
 		} else if (regId != null) {
-			// TODO: send regID to server in ANOTHER THREAD				
+			// TODO send regID to server in ANOTHER THREAD				
 			Log.d(TAG, String.format("Sending regId: %s to server...", regId));
-			Toast.makeText(context, "Registering...", Toast.LENGTH_LONG).show();
+			
+			
+			//Update our Home Activity
+			Intent updateIntent = new Intent(C2DMSampleApplication.NEW_REGID_INTENT);
+			updateIntent.putExtra(C2DMSampleApplication.REGID_VAL_INTENT, regId);
+			context.sendBroadcast(updateIntent, C2DMSampleApplication.INTENT_RECEIVE_PERMISSION);
+			
+			//store it into shared prefs
+			((C2DMSampleApplication)context.getApplicationContext()).setRegId(regId);
 		} 
 	}
 

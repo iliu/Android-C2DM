@@ -4,7 +4,8 @@
 	android:versionName="1.0">
 	<uses-sdk android:minSdkVersion="8" />
 
-	<application android:icon="@drawable/icon" android:label="@string/app_name">
+	<application android:icon="@drawable/icon" android:label="@string/app_name"
+		android:name=".C2DMSampleApplication">
 		<receiver android:name=".C2DMReceiver"
 			android:permission="com.google.android.c2dm.permission.SEND">
 			<intent-filter>
@@ -23,11 +24,27 @@
 			</intent-filter>
 		</activity>
 	</application>
-	
+
 	<uses-permission android:name="android.permission.WAKE_LOCK" />
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 	<uses-permission android:name="com.liuapps.c2dmsample.permission.C2D_MESSAGE" />
 	<permission android:name="com.liuapps.c2dmsample.permission.C2D_MESSAGE"
 		android:protectionLevel="signature" />
+		
+		<permission android:name="com.liuapps.c2dmsample.SEND_NOTIFICATIONS"
+		android:label="@string/sendPermissionLabel"
+		android:description="@string/sendPermissionSummary"
+		android:permissionGroup="android.permission-group.PERSONAL_INFO"
+		android:protectionLevel="normal" />
+
+	<permission android:name="com.liuapps.c2dmsample.RECEIVE_NOTIFICATIONS"
+		android:label="@string/receivePermissionLabel"
+		android:description="@string/receivePermissionSummary"
+		android:permissionGroup="android.permission-group.PERSONAL_INFO"
+		android:protectionLevel="normal" />
+
+	<uses-permission android:name="com.liuapps.c2dmsample.SEND_NOTIFICATIONS" />
+	<uses-permission android:name="com.liuapps.c2dmsample.RECEIVE_NOTIFICATIONS" />
+		
 </manifest>

@@ -1,0 +1,6 @@
+This is a simple ruby app to send a c2dm message to your android device that has already been registered for push notification.
+It mimics a web server to send a c2dm message using the c2dm ruby gem.
+
+To use, first get the regId from your emulator or device (use log.d or something), then modify config.yml and fill in the appropriate fields.
+Then simply run `ruby sendC2DM.rb "_message_text_"` to send a c2dm message
+

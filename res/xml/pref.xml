@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <EditTextPreference android:title="@string/regIdTitle" android:key="regId" android:summary="@string/regIdSummary" android:selectable="false" android:enabled="true"></EditTextPreference>
+    
+</PreferenceScreen>
