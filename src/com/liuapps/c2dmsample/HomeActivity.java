@@ -18,7 +18,7 @@ import android.widget.Toast;
 public class HomeActivity extends Activity {
 	private static final String TAG = HomeActivity.class.getSimpleName();
 	C2DMSampleApplication app;
-	Button button;
+	Button buttonReg, buttonUnreg;
 	TextView textView;
 	IntentFilter filter;
 	IdReceiver receiver;
@@ -30,12 +30,13 @@ public class HomeActivity extends Activity {
         setContentView(R.layout.main);
         
         app = (C2DMSampleApplication) getApplication();
-        button = (Button) findViewById(R.id.buttonReg);
+        buttonReg = (Button) findViewById(R.id.buttonReg);
+        buttonUnreg = (Button) findViewById(R.id.buttonUnReg);
         textView = (TextView) findViewById(R.id.textStatus);
         filter = new IntentFilter(C2DMSampleApplication.NEW_REGID_INTENT);
         receiver = new IdReceiver();
         
-        button.setOnClickListener(new OnClickListener() {
+        buttonReg.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				// Create registration intent
@@ -46,6 +47,18 @@ public class HomeActivity extends Activity {
 				regIntent.putExtra("sender", "roleemail@gmail.com");
 				// Start the registration process
 				startService(regIntent);
+			}
+		});
+        
+        buttonUnreg.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				// Create registration intent
+				Intent unregIntent = new Intent("com.google.android.c2dm.intent.UNREGISTER");
+				// Identify your app
+				unregIntent.putExtra("app", PendingIntent.getBroadcast(HomeActivity.this, 0, new Intent(), 0));
+				// Start the registration process
+				startService(unregIntent);
 			}
 		});
     }
@@ -68,10 +81,11 @@ public class HomeActivity extends Activity {
 		String regId = app.getRegId();
 		if (regId == null) {
 			textView.setText("Device is not registered, click the button to register device");
+			buttonUnreg.setEnabled(false);
 		}
 		else {
 			textView.setText(String.format("Device is registered with id: %s", regId));
-			
+			buttonUnreg.setEnabled(true);
 			//print out regID in log 
 			Log.d(TAG, String.format("Reg Id: %s", regId));
 			//Copy to clipboard

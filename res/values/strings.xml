@@ -9,4 +9,5 @@
     <string name="receivePermissionLabel">Receive Notification Permission</string>
     <string name="sendPermissionSummary">Permission to send intents to C2DMSample</string>
     <string name="receivePermissionSummary">Permission to receive intents from C2DMSample</string>
+    <string name="buttonUnregText">Click to unregister device</string>
 </resources>
