@@ -2,6 +2,6 @@ This is a sample cloud to device messaging (c2dm) app that demos how it works.
 
 Before you use it be sure to change the sender address in the HomeActivity.java before the intent is sent out. 
 
-Included also is a ruby script that can send c2dm messages to test the application implementation. Modify the config.yml to configure the script. 
+Included also is a ruby script (in the c2dmServer folder) that can send c2dm messages to test the application implementation. Modify the config.yml to configure the script. 
 
 You will need an android c2dm account, so apply for one here: http://code.google.com/android/c2dm/signup.html
