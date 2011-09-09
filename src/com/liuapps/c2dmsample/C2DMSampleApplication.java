@@ -25,7 +25,6 @@ public class C2DMSampleApplication extends Application {
 		// get the shared preferences for the app
 		prefs = PreferenceManager.getDefaultSharedPreferences(this);
 	}
-
 	
 	/**
 	 * @return regId or null

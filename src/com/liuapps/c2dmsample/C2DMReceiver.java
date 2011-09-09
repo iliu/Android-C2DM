@@ -95,7 +95,7 @@ public class C2DMReceiver extends BroadcastReceiver{
 	}
 	
 	private void updateHome(Context context) {
-		//Update our Home Activity
+		//Update our Home Activity by sending it an intent
 		Intent updateIntent = new Intent(C2DMSampleApplication.NEW_REGID_INTENT);
 		context.sendBroadcast(updateIntent, C2DMSampleApplication.INTENT_RECEIVE_PERMISSION);
 	}
